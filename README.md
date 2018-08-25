@@ -1,7 +1,7 @@
 # wharton_database_public
 # README #
 This is a temporary solution to extract data from database saving in form of SAS and SQL,
-cleaning and unifying them into the format needed.
+cleaning and unifying them into the format needed. This file has prepared 1200GB data for model training.
 
 Note: All account sensitive information has been replaced with 'xxxxx'
 file_manager depends on Debian os.system
