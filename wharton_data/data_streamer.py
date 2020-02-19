@@ -307,18 +307,18 @@ def setup_args(defaults):
 def main():
     logger = logging.getLogger('Local')        # tell the program to send messages on its own behalf.
     DEFAULTS = {
-        'export_path'     : path.expanduser('~/Desktop/wrds_data/'),
-        'faulty_data_path': path.expanduser('~/Desktop/wrds_data/faulty_data/'),
-        'cache_path'      : path.expanduser('~/Desktop/wrds_data/cache/'),
-        'symbol_path'     : path.expanduser('~/Desktop/aitrading2gen/wharton_data/symbols.json')}
+        'export_path'     : path.expanduser('~/Time_Series/Data/wrds_data/'),
+        'faulty_data_path': path.expanduser('~/Time_Series/Data/wrds_data/faulty_data/'),
+        'cache_path'      : path.expanduser('~/Time_Series/Data/wrds_data/cache/'),
+        'symbol_path'     : path.expanduser('~/Time_Series/WRDS_TAQ_public/symbols.json')}
 
     args = setup_args(defaults=DEFAULTS).__dict__
     
 
     # sandbox mode for testing file organization
     if args['sandbox']:
-        args[ 'cache_path'] = path.expanduser('~/Desktop/sandbox/cache/')
-        args['export_path'] = path.expanduser('~/Desktop/sandbox/')
+        args[ 'cache_path'] = path.expanduser('~/Time_Series/Data/sandbox/cache/')
+        args['export_path'] = path.expanduser('~/Time_Series/Data/Desktop/sandbox/')
 
     symbols     = read_symbols(args['symbol_group_path'])['symbols']
     start_date  = args['start_date']
