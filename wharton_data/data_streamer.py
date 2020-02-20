@@ -124,7 +124,7 @@ class DataStreamer(object):
         conn_out = subprocess.run(cmd_list)
         assert conn_out.returncode==0, RuntimeError('WRDS side failed: `%s`.' % conn_out)
         logger.info('Now downloading data from WRDS to local machine.')
-        sync_data_cmd = ["scp", "-r", "xxxxx@wrds-cloud.wharton.upenn.edu:~/data_cache/2018-*", self.cache_path]
+        sync_data_cmd = ["scp", "-r", "xxxxx@wrds-cloud.wharton.upenn.edu:~/data_cache/2020-*", self.cache_path]
         try:
             sync_out = subprocess.run(sync_data_cmd )
         except AssertionError as e:
