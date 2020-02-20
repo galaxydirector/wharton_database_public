@@ -143,7 +143,9 @@ def main():
 
     N = len(symbol_list)*len(date_range)
     assert N>0, 'No job scheduled!'
-
+    # if use wrds-rd instead of wrds-cloud
+    # baseline = subprocess.check_output(['ps', '-fu', 'xxxxx']).decode().count('xxxxx')
+    
     # Cartisian-product 'em:
     for date_str, symbol in product(date_range, symbol_list):
         if server.allow_switch and args['switch_year'] is not None and args['mode'] == 'auto' and args['switch_year'] <= int(date_str[:4]):
@@ -153,6 +155,9 @@ def main():
     with tqdm(total=N, desc='Server waiting for cloud.') as pbar:
         while True:
             n_still_going = subprocess.check_output(['qstat', '-u', 'xxxxx']).decode().count('xxxxx')
+            # if use wrds-rd instead of wrds-cloud
+            # n_still_going = subprocess.check_output(['ps', '-fu', 'xxxxx']).decode().count('xxxxx') - baseline
+            
             n_done = N-n_still_going
             n_registered = pbar.n
             n_to_register = n_done-n_registered
