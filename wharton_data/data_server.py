@@ -131,7 +131,7 @@ def delete(pattern='./*.log', desc='log'):
 def main():
     delete('./*.log', desc='log')
     #delete('./data_cache/2018-*', desc='cache')
-    os.system('rm -r ./data_cache/2018-*') #TODO: make `delete()` work with directories.
+    os.system('rm -r ./data_cache/2020-*') #TODO: make `delete()` work with directories.
 
     args = setup_args().__dict__
 
